@@ -1,0 +1,15 @@
+{{ block title }}Petición{{ endblock }}
+{{ block content }}
+    <p>
+        Esta es la ronda {{ player.round_number }}. Eres
+        el jugador {{ player.id_in_group }}.
+    </p>
+    <p>¿Cuánto vas a demandar para ti mismo?</p>
+
+    {{ formfields }}
+
+    <p>{{ next_button }}</p>
+
+    {{ include_sibling 'instructions.html' }}
+    
+{{ endblock }}

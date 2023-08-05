@@ -1,0 +1,30 @@
+{{ block title }}Resultados{{ endblock }}
+{{ block content }}
+    <table class=table style="width: auto">
+        <tr>
+            <th>Tú demandaste</th>
+            <td>{{ player.request }}</td>
+        </tr>
+        <tr>
+            <th>El segundo jugador demandó</th>
+            <td>{{ other_player_request }}</td>
+        </tr>
+        <tr>
+            <th>El tercer jugador demandó</th>
+            <td>{{ other_player_request2 }}</td>
+        </tr>
+        <tr>
+            <th>Suma de tus demandas</th>
+            <td>{{ group.total_requests }}</td>
+        </tr>
+        <tr>
+            <th>De esta manera, ganas</th>
+            <td>{{ player.payoff }}</td>
+        </tr>
+    </table>
+
+    <p>{{ next_button }}</p>
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}
