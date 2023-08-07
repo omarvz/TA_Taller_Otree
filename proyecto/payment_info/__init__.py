@@ -32,7 +32,11 @@ class PaymentInfo(Page):
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
-        return dict(redemption_code=participant.label or participant.code)
+        return dict(
+            mi_edad = player.participant.vars.get('edad', None),
+            mi_carrera = player.participant.vars.get('carrera', None),
+            mi_ciclo = player.participant.vars.get('ciclo', None)
+        )
 
 
 page_sequence = [PaymentInfo]

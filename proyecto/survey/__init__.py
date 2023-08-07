@@ -39,10 +39,14 @@ class Encuesta(Page):
     form_model = 'player'
     form_fields = ['edad']
 
-
 class Estudios(Page):
     form_model = 'player'
     form_fields = ['carrera', 'ciclo_estudios', 'especialidad']
 
+    def before_next_page(player, timeout_happened):
+        player.participant.vars['edad'] = player.edad
+        player.participant.vars['carrera'] = player.carrera
+        player.participant.vars['ciclo'] = player.ciclo_estudios
+    
 
 page_sequence = [Encuesta, Estudios]
